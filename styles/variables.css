@@ -1,0 +1,15 @@
+:root {
+  --main-font: "Kanit Medium", Tahoma, sans-serif;
+  --second-font: "Kanit Regular", Tahoma, sans-serif;
+
+  --primary-color: #f7f7f7;
+  --secondary-color: #252525;
+  --accent-color: #6c63ff;
+
+  --box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  --focus-light: 0px 0px 4px 0px var(--accent-color);
+
+  --search-field: #6c63ff;
+  --search-placeholder: #C3C1E5;
+}
+
