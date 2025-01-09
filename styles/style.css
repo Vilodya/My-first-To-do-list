@@ -143,6 +143,10 @@
   text-align: center;
 }
 
+.empty_hidden {
+  display: none;
+}
+
 .empty__text {
   font-family: var(--second-font);
   font-size: 20px;
@@ -188,6 +192,7 @@
 }
 
 .task__pseudocheckbox::before {
+  display: none;
   position: absolute;
   background-image: url(../svg/checked.svg);
   content: '';
@@ -206,6 +211,10 @@
 .task__checkbox:checked + .task__pseudocheckbox {
   border-color: var(--accent-color);
   background-color: var(--accent-color);
+}
+
+.task__checkbox:checked + .task__pseudocheckbox::before {
+  display: block;
 }
 
 .task__checkbox:checked + .task__pseudocheckbox + .task__text {

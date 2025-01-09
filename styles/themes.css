@@ -16,4 +16,17 @@
 html.dark {
   --primary-color: #252525;
   --secondary-color: #f7f7f7;
+
+  --search-field: #f7f7f7;
+  --search-placeholder: #666666;
 }
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --primary-color: #252525;
+    --secondary-color: #f7f7f7;
+
+    --search-field: #f7f7f7;
+    --search-placeholder: #666666;
+  }
+} */
