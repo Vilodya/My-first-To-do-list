@@ -28,3 +28,7 @@ function updateDate() {
 }
 
 updateDate();
+
+function addTask() {
+  
+}
