@@ -9,6 +9,8 @@ const deleteButton = main.querySelector('.delete-button');
 const themeImage = document.querySelector('.empty__image');
 const buttonImage = document.querySelector('.theme-button__image');
 
+const task = document.querySelector('.tasks-list__item');
+
 function updateDate() {
   const months = [
     "January", "February", "March", "April", "May", "June",
@@ -39,18 +41,20 @@ themeToggleButton.addEventListener('click', () => {
   }
 });
 
-function listHasTasks() {
-  empty.classList.add('no-songs_hidden');
+function hideEmptyState() {
+  empty.classList.add('empty_hidden');
 }
 
-function listNoTasks() {
-  empty.classList.remove('no-songs_hidden');
+function showEmptyState() {
+  empty.classList.remove('empty_hidden');
 }
 
 // function addTask() {
   
 // }
 
-// deleteButton.addEventListener('click', function () {
-//   const task 
-// });
+function deleteTask() {
+  task.remove();
+}
+
+deleteButton.addEventListener('click', deleteTask);
