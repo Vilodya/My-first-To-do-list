@@ -27,6 +27,13 @@
   text-transform: uppercase;
 }
 
+.header__greeting {
+  margin-top: 18px;
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 30px;
+}
+
 .header__date {
   margin-top: 18px;
   font-weight: 400;
@@ -192,13 +199,13 @@
 }
 
 .task__pseudocheckbox::before {
-  display: none;
-  position: absolute;
-  background-image: url(../svg/checked.svg);
   content: '';
+  position: absolute;
+  top: 3px;
+  display: none;
   width: 15px;
   height: 15px;
-  top: 3px;
+  background-image: url(../svg/checked.svg);
 }
 
 .task__text {
@@ -234,6 +241,11 @@
   width: 18px;
   height: 18px;
   background-color: transparent;
+}
+
+.btn:hover {
+  transition: transform 0.3s ease;
+  scale: 1.3;
 }
 
 .btn__icon {
