@@ -7,8 +7,7 @@
   position: relative;
   min-width: 360px;
   max-width: 768px;
-  height: 100vh;
-  min-height: 450px;
+  min-height: 100vh;
   padding: 0 9px;
   color: var(--secondary-color);
   font-family: var(--main-font);

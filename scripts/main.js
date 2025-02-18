@@ -1,16 +1,20 @@
+// Объявление переменных
 const htmlElement = document.documentElement;
 const header = document.querySelector('.header');
 const main = document.querySelector('.main');
+
 const empty = main.querySelector('.empty');
+const taskList = main.querySelector('.tasks-list');
 
 const themeToggleButton = header.querySelector('.theme-button');
-const deleteButton = main.querySelector('.delete-button');
+const addButton = main.querySelector('.add-button');
 
 const themeImage = document.querySelector('.empty__image');
 const buttonImage = document.querySelector('.theme-button__image');
 
-const task = document.querySelector('.tasks-list__item');
+const taskTemplate = document.querySelector('#task-template');
 
+// Функции
 function updateDate() {
   const months = [
     "January", "February", "March", "April", "May", "June",
@@ -25,7 +29,35 @@ function updateDate() {
   dateElement.textContent = `Today is ${day} ${month}`;
 }
 
+function toggleEmptyState() {
+  if(taskList.children.length > 0) {
+    empty.classList.add('empty_hidden');
+  } else {
+    empty.classList.remove('empty_hidden');
+  }
+}
+
+function addTask() {
+  const taskItem = taskTemplate.content.cloneNode(true).querySelector('.tasks-list__item');
+  taskList.append(taskItem);
+  toggleEmptyState();
+}
+
+// Инициализация
 updateDate();
+document.addEventListener('DOMContentLoaded', toggleEmptyState);
+
+// Обработчики
+taskList.addEventListener('click', function(event) {
+  const deleteButton = event.target.closest('.delete-button');
+  if (deleteButton) {
+    const taskItem = deleteButton.closest('.tasks-list__item');
+    if (taskItem) {
+      taskItem.remove();
+      toggleEmptyState();
+    }
+  }
+});
 
 themeToggleButton.addEventListener('click', () => {
   htmlElement.classList.toggle('dark');
@@ -41,20 +73,4 @@ themeToggleButton.addEventListener('click', () => {
   }
 });
 
-function hideEmptyState() {
-  empty.classList.add('empty_hidden');
-}
-
-function showEmptyState() {
-  empty.classList.remove('empty_hidden');
-}
-
-// function addTask() {
-  
-// }
-
-function deleteTask() {
-  task.remove();
-}
-
-deleteButton.addEventListener('click', deleteTask);
+addButton.addEventListener('click', addTask);
