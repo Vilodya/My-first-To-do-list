@@ -51,16 +51,18 @@
   </main>
 
   <!-- Модальное окно -->
-   <div class="modal modal_is-opened modal_animated">
+   <div class="modal modal_animated">
     <div class="modal__content">
       <h2 class="modal__title">New Note</h2>
-      <label class="input-wrapper new-note">
-        <input type="text" class="input-wrapper__input new-note__input" placeholder="Input your note...">
-      </label>
-      <div class="modal__buttons">
-        <button class="modal__button modal__button_cancel">Cancel</button>
-        <button class="modal__button modal__button_apply">Apply</button>
-      </div>
+      <form action="" name="form" class="modal__form">
+        <label class="input-wrapper modal__input-wrapper">
+          <input type="text" name="note" class="input-wrapper__input modal__input-wrapper-input" placeholder="Input your note...">
+        </label>
+        <div class="modal__buttons">
+          <button type="button" class="modal__button modal__button_cancel">Cancel</button>
+          <button type="submit" class="modal__button modal__button_apply">Apply</button>
+        </div>
+      </form>
     </div>
    </div>
 
@@ -70,7 +72,7 @@
       <label class="task__text-group">
         <input type="checkbox" class="task__checkbox">
         <span class="task__pseudocheckbox"></span>
-        <span class="task__text">Note #1</span>
+        <span class="task__text"></span>
       </label>
       <div class="task__button-group">
         <button type="button" class="edit-button btn">

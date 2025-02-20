@@ -1,6 +1,6 @@
 :root {
-  --main-font: "Kanit Medium", Tahoma, sans-serif;
-  --second-font: "Kanit Regular", Tahoma, sans-serif;
+  --main-font: "Kanit Medium", Inter, sans-serif;
+  --second-font: "Kanit Regular", Inter, sans-serif;
 
   --primary-color: #f7f7f7;
   --secondary-color: #252525;

@@ -20,7 +20,7 @@
 }
 
 .header__title {
-  font-weight: 400;
+  font-weight: 500;
   font-size: 26px;
   line-height: 39px;
   text-transform: uppercase;
@@ -28,14 +28,14 @@
 
 .header__greeting {
   margin-top: 18px;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 26px;
   line-height: 30px;
 }
 
 .header__date {
   margin-top: 18px;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 22px;
   line-height: 24px;
 }
@@ -79,6 +79,9 @@
 }
 
 .sort__list {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
   border: 2px solid var(--accent-color);
   border-radius: 5px;
   padding: 8px;
@@ -339,12 +342,12 @@
 }
 
 .modal__title {
-  font-weight: 400;
+  font-weight: 500;
   font-size: 24px;
   line-height: 24px;
 }
 
-.new-note {
+.modal__input-wrapper {
   margin-top: 26px;
 }
 
@@ -359,7 +362,7 @@
   border: 2px solid var(--accent-color);
   border-radius: 5px;
   padding: 8px 20px;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 18px;
   line-height: 18px;
   text-transform: uppercase;

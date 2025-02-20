@@ -8,9 +8,16 @@ const taskList = main.querySelector('.tasks-list');
 
 const themeToggleButton = header.querySelector('.theme-button');
 const addButton = main.querySelector('.add-button');
+const cancelButton = document.querySelector('.modal__button_cancel');
+const applyButton = document.querySelector('.modal__button_apply');
+
 
 const themeImage = document.querySelector('.empty__image');
 const buttonImage = document.querySelector('.theme-button__image');
+
+const modal = document.querySelector('.modal');
+const modalForm = document.forms.form;
+const note = modalForm.elements.note;
 
 const taskTemplate = document.querySelector('#task-template');
 
@@ -37,10 +44,22 @@ function toggleEmptyState() {
   }
 }
 
-function addTask() {
+function openModal() {
+  modal.classList.add('modal_is-opened');
+}
+
+function closeModal() {
+  modal.classList.remove('modal_is-opened');
+}
+
+function addTask(noteValue) {
   const taskItem = taskTemplate.content.cloneNode(true).querySelector('.tasks-list__item');
+  taskItem.querySelector('.task__text').textContent = noteValue;
   taskList.append(taskItem);
+
   toggleEmptyState();
+  closeModal();
+  form.reset();
 }
 
 // Инициализация
@@ -91,4 +110,13 @@ themeToggleButton.addEventListener('click', () => {
   }
 });
 
-addButton.addEventListener('click', addTask);
+addButton.addEventListener('click', openModal);
+cancelButton.addEventListener('click', () => {
+  closeModal();
+  form.reset();
+});
+
+modalForm.addEventListener('submit', function (evt) {
+  evt.preventDefault();
+  addTask(note.value);
+});
