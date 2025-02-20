@@ -47,26 +47,26 @@
   margin-top: 18px;
 }
 
-.search {
+.input-wrapper {
   display: flex;
   flex-grow: 1;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid var(--search-field);
+  border: 1px solid var(--input-field);
   border-radius: 5px;
   padding: 7px 14px;
 }
 
-.search:focus-within {
-  outline: 1px solid var(--search-placeholder);
+.input-wrapper:focus-within {
+  outline: 2px solid var(--input-placeholder);
 }
 
-.search__input {
+.input-wrapper__input {
   width: 100%;
   border: none;
   padding: 0 16px 0 0;
   outline: none;
-  color: var(--search-field);
+  color: var(--input-field);
   font-family: Inter, Arial, sans-serif;
   font-weight: 500;
   font-size: 16px;
@@ -74,8 +74,8 @@
   background-color: inherit;
 }
 
-.search__input::placeholder {
-  color: var(--search-placeholder);
+.input-wrapper__input::placeholder {
+  color: var(--input-placeholder);
 }
 
 .sort__list {
@@ -292,4 +292,85 @@
 .add-button__image {
   width: 24px;
   height: 24px;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 9;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  background-color: rgba(25, 25, 25, .7);
+}
+
+.modal_animated {
+  display: flex;
+  opacity: 0;
+  pointer-events: none;
+  transition: visibility 0s .6s, opacity .6s;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  visibility: hidden;
+}
+
+.modal_is-opened {
+  display: flex;
+  opacity: 1;
+  pointer-events: all;
+  transition: visibility 0s, opacity .6s;
+  visibility: visible;
+}
+
+.modal__content {
+  width: 100%;
+  max-width: 500px;
+  min-height: 289px;
+  border: 1px solid #f7f7f7;
+  border-radius: 16px;
+  padding: 18px 30px;
+  text-align: center;
+  background-color: var(--primary-color);
+}
+
+.modal__title {
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 24px;
+}
+
+.new-note {
+  margin-top: 26px;
+}
+
+.modal__buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 128px;
+}
+
+.modal__button {
+  border: 2px solid var(--accent-color);
+  border-radius: 5px;
+  padding: 8px 20px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 18px;
+  text-transform: uppercase;
+}
+
+.modal__button_cancel {
+  background-color: var(--primary-color);
+  color: var(--accent-color);
+}
+
+.modal__button_apply {
+  background-color: var(--accent-color);
+  color: #f7f7f7;
 }

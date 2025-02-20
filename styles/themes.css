@@ -9,24 +9,14 @@
   --box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   --focus-light: 0px 0px 4px 0px var(--accent-color);
 
-  --search-field: #6c63ff;
-  --search-placeholder: #C3C1E5;
+  --input-field: #6c63ff;
+  --input-placeholder: #C3C1E5;
 }
 
 html.dark {
   --primary-color: #252525;
   --secondary-color: #f7f7f7;
 
-  --search-field: #f7f7f7;
-  --search-placeholder: #666666;
+  --input-field: #f7f7f7;
+  --input-placeholder: #666666;
 }
-
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --primary-color: #252525;
-    --secondary-color: #f7f7f7;
-
-    --search-field: #f7f7f7;
-    --search-placeholder: #666666;
-  }
-} */

@@ -47,6 +47,26 @@ function addTask() {
 updateDate();
 document.addEventListener('DOMContentLoaded', toggleEmptyState);
 
+document.addEventListener('DOMContentLoaded', () => {
+  const updateTheme = () => {
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if (prefersDark) {
+      htmlElement.classList.add('dark');
+      buttonImage.src = './svg/sun-icon.svg';
+      themeImage.src = './svg/detective-image-dark.svg';
+    } else {
+      htmlElement.classList.remove('dark');
+      buttonImage.src = './svg/moon-icon.svg';
+      themeImage.src = './svg/detective-image-light.svg';
+    }
+  };
+
+  updateTheme(); // Устанавливаем тему при загрузке
+
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateTheme);
+});
+
 // Обработчики
 taskList.addEventListener('click', function(event) {
   const deleteButton = event.target.closest('.delete-button');
@@ -63,11 +83,9 @@ themeToggleButton.addEventListener('click', () => {
   htmlElement.classList.toggle('dark');
 
   if (htmlElement.classList.contains('dark')) {
-    localStorage.setItem('theme', 'dark');
     buttonImage.src = './svg/sun-icon.svg';
     themeImage.src = './svg/detective-image-dark.svg';
   } else {
-    localStorage.setItem('theme', 'light');
     buttonImage.src = './svg/moon-icon.svg';
     themeImage.src = './svg/detective-image-light.svg';
   }
