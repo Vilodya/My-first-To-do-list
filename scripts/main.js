@@ -62,6 +62,22 @@ function addTask(noteValue) {
   form.reset();
 }
 
+const showInputError = (element) => {
+  element.classList.add('error');
+};
+
+const hideInputError = (element) => {
+  element.classList.remove('error');
+};
+
+const isValid = () => {
+  if (!note.validity.valid) {
+    showInputError(note);
+  } else {
+    hideInputError(note);
+  }
+};
+
 // Инициализация
 updateDate();
 document.addEventListener('DOMContentLoaded', toggleEmptyState);
@@ -120,3 +136,5 @@ modalForm.addEventListener('submit', function (evt) {
   evt.preventDefault();
   addTask(note.value);
 });
+
+note.addEventListener('input', isValid);
