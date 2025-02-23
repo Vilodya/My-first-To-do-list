@@ -349,6 +349,7 @@
 
 .modal__input-wrapper {
   margin-top: 26px;
+  position: relative;
 }
 
 .modal__buttons {
@@ -368,17 +369,43 @@
   text-transform: uppercase;
 }
 
-.modal__button_cancel {
+.modal__button-cancel {
   background-color: var(--primary-color);
   color: var(--accent-color);
 }
 
-.modal__button_apply {
+.modal__button-apply {
   background-color: var(--accent-color);
   color: #f7f7f7;
 }
 
+.modal__button-apply_disabled {
+  pointer-events: none;
+  background-color: #666666;
+  border: 2px solid #333333;
+  opacity: 0.7;
+}
+
+/* Блок стилей валидации */
 .input-wrapper:has(.error) {
   outline: 2px solid #ff0000;
   box-shadow: 0 0 5px 2px rgba(255, 0, 0, .7);
-} 
+}
+
+.input-error {
+  position: absolute;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: left;
+  color: #ff0000;
+  display: none;
+}
+
+.note-input-error {
+  top: 40px;
+  left: 0;
+}
+
+.input-error_active {
+  display: block;
+}

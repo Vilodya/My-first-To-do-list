@@ -8,8 +8,8 @@ const taskList = main.querySelector('.tasks-list');
 
 const themeToggleButton = header.querySelector('.theme-button');
 const addButton = main.querySelector('.add-button');
-const cancelButton = document.querySelector('.modal__button_cancel');
-const applyButton = document.querySelector('.modal__button_apply');
+const cancelButton = document.querySelector('.modal__button-cancel');
+const applyButton = document.querySelector('.modal__button-apply');
 
 
 const themeImage = document.querySelector('.empty__image');
@@ -17,7 +17,8 @@ const buttonImage = document.querySelector('.theme-button__image');
 
 const modal = document.querySelector('.modal');
 const modalForm = document.forms.form;
-const note = modalForm.elements.note;
+const noteInput = modalForm.elements.note;
+const noteError = modalForm.querySelector(`.${noteInput.id}-error`);
 
 const taskTemplate = document.querySelector('#task-template');
 
@@ -46,6 +47,7 @@ function toggleEmptyState() {
 
 function openModal() {
   modal.classList.add('modal_is-opened');
+  toggleButtonState();
 }
 
 function closeModal() {
@@ -62,30 +64,41 @@ function addTask(noteValue) {
   form.reset();
 }
 
-const showInputError = (element) => {
+const showInputError = (element, errorMessage) => {
   element.classList.add('error');
+  noteError.textContent = errorMessage;
+  noteError.classList.add('input-error_active');
 };
 
 const hideInputError = (element) => {
   element.classList.remove('error');
+  noteError.classList.remove('input-error_active');
+  noteError.textContent = '';
+};
+
+const toggleButtonState = () => {
+  if (!noteInput.validity.valid) {
+    applyButton.classList.add('modal__button-apply_disabled');
+  } else {
+    applyButton.classList.remove('modal__button-apply_disabled');
+  }
 };
 
 const isValid = () => {
-  if (!note.validity.valid) {
-    showInputError(note);
+  if (!noteInput.validity.valid) {
+    showInputError(noteInput, noteInput.validationMessage);
+    applyButton.classList.add('modal__button-apply_disabled');
   } else {
-    hideInputError(note);
+    hideInputError(noteInput);
+    applyButton.classList.remove('modal__button-apply_disabled');
   }
 };
 
 // Инициализация
-updateDate();
-document.addEventListener('DOMContentLoaded', toggleEmptyState);
-
 document.addEventListener('DOMContentLoaded', () => {
   const updateTheme = () => {
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
+
     if (prefersDark) {
       htmlElement.classList.add('dark');
       buttonImage.src = './svg/sun-icon.svg';
@@ -97,8 +110,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
+  updateDate();
+  toggleEmptyState();
   updateTheme(); // Устанавливаем тему при загрузке
-
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateTheme);
 });
 
@@ -134,7 +148,7 @@ cancelButton.addEventListener('click', () => {
 
 modalForm.addEventListener('submit', function (evt) {
   evt.preventDefault();
-  addTask(note.value);
+  addTask(noteInput.value);
 });
 
-note.addEventListener('input', isValid);
+noteInput.addEventListener('input', isValid);

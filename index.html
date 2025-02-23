@@ -56,11 +56,12 @@
       <h2 class="modal__title">New Note</h2>
       <form action="" name="form" class="modal__form" novalidate>
         <div class="input-wrapper modal__input-wrapper">
-          <input type="text" name="note" class="input-wrapper__input modal__input-wrapper-input" placeholder="Input your note..." minlength="2" required>
+          <input id="note-input" type="text" name="note" class="input-wrapper__input note-input" placeholder="Input your note..." minlength="5" maxlength="50" required>
+          <span class="input-error note-input-error"></span>
         </div>
         <div class="modal__buttons">
-          <button type="button" class="modal__button modal__button_cancel">Cancel</button>
-          <button type="submit" class="modal__button modal__button_apply">Apply</button>
+          <button type="button" class="modal__button modal__button-cancel">Cancel</button>
+          <button type="submit" class="modal__button modal__button-apply">Apply</button>
         </div>
       </form>
     </div>
