@@ -110,15 +110,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  updateDate();
-  toggleEmptyState();
+  updateDate(); // Устанавливаем дату при загрузке
+  toggleEmptyState(); // Проверка пустого блока
   updateTheme(); // Устанавливаем тему при загрузке
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateTheme);
 });
 
 // Обработчики
-taskList.addEventListener('click', function(event) {
-  const deleteButton = event.target.closest('.delete-button');
+taskList.addEventListener('click', function(evt) {
+  const deleteButton = evt.target.closest('.delete-button');
   if (deleteButton) {
     const taskItem = deleteButton.closest('.tasks-list__item');
     if (taskItem) {
