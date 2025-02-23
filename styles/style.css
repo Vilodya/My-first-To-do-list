@@ -378,7 +378,7 @@
   color: #f7f7f7;
 }
 
-.error {
-  outline: none;
-  box-shadow: 0 1px 0 0 red;
-}
+.input-wrapper:has(.error) {
+  outline: 2px solid #ff0000;
+  box-shadow: 0 0 5px 2px rgba(255, 0, 0, .7);
+} 
